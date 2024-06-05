@@ -1,0 +1,35 @@
+# 회문
+  * 회문: 앞으로 읽어도 뒤로 읽어도 똑같은 단어 ex) 기러기, 토마우, 스위스...
+  * 24년 6월 5일 기준 아직 **한글**로 회문을 할 수 있는 건 구현을 못했지만 나중에 꼭 하겠다.
+
+
+```C++
+#include <iostream>
+#include <string>
+
+
+bool palindrome(const std::string& string) {
+    if (string.length() <= 1) {
+        return true;
+    }
+
+    else {
+        if (string.front() == string.back()) {
+            return palindrome(string.substr(1, string.length() - 2));
+            // 만약에 3글자일경우 ex) 기러기 => '기' => (1,1)
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+int main() {
+    std::string woo = "aba";
+    bool result = palindrome(woo);
+    std::cout << result << std::endl;
+
+    return 0;
+}
+```
+  
