@@ -5,7 +5,8 @@
 * 한 단계씩 내려오면서 해당 노드의 같은 레벨에 있는 노드들을 먼저 순회함
 
 
-# 그림은 나중에 넣기
+![image](https://github.com/Anjinhyoung/Cpp_Algorithm_Problem-Solving/assets/117788976/022895ae-4309-4775-b22d-518555f55389)
+
 
 
 ```C++
