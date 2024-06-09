@@ -1,6 +1,6 @@
 # C++ 알고리즘 공부하면서 알게된 점
 
-### std::Vector<T> 의 인수 종류들
+### std::Vector<> 의 인수 종류들
   1. 빈 vector
      ```C++
      std::vector<T> vec;
