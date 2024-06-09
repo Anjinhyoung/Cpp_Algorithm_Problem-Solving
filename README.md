@@ -11,29 +11,29 @@
      ```
   3. 크기와 초기값을 지정하는 생성자
      ```C++
-     std::vector<int> vec(10, 42); // 크기 10, 모든 요소는 42로 초기화
+     std::vector<int> vec(10, 42); 
      ```
 
   4. 크기만 지정하는 생성자
      ```C++
-     std::vector<int> vec(10); // 크기 10, 모든 요소는 0으로 초기화
+     std::vector<int> vec(10); 
      ```
 
   5. 다른 벡터를 복사하는 생성자
      ```C++
      std::vector<int> vec1 = {1, 2, 3};
-     std::vector<int> vec2(vec1); // vec2는 vec1의 복사본
+     std::vector<int> vec2(vec1); 
      ```
   6. 이동 생성자
      ```C++
      std::vector<int> vec1 = {1, 2, 3};
-     std::vector<int> vec2(std::move(vec1)); // vec2는 vec1의 이동된 버전
+     std::vector<int> vec2(std::move(vec1)); 
      ```
 
   7. 범위를 지정하는 생성자
      ```C++
      std::vector<int> vec1 = {1, 2, 3, 4, 5};
-     std::vector<int> vec2(vec1.begin(), vec1.end()); // vec2는 vec1의 복사본
+     std::vector<int> vec2(vec1.begin(), vec1.end()); 
      ```
 
 
