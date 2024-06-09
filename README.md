@@ -36,5 +36,15 @@
      std::vector<int> vec2(vec1.begin(), vec1.end()); 
      ```
 
-
+### std::merge 사용법 
+```C++
+OutputIt merge( InputIt1 first1, InputIt1 last1,
+                InputIt2 first2, InputIt2 last2,
+                OutputIt d_first, Compare comp );
+```
+  1. first1, last1: 첫 번째 정렬된 범위의 시작과 끝 반복자
+  2. first2, last2: 두 번째 정렬된 범위의 시작과 끝 반복자
+  3. d_first: 병합된 결과를 저장할 범위의 시작 반복자
+  4. comp: 두 요소를 비교하기 위한 사용자 정의 비교 함수
+     * 기본 버전은 < 연산자를 사용하고, 사용자 정의 비교 함수 버전은 주어진 비교 함수를 사용한다.
 
