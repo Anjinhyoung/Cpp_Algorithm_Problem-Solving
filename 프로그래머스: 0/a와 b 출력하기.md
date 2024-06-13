@@ -14,3 +14,6 @@ int main(void) {
     return 0;
 }
 ```
+결과는 당연히 
+
+![image](https://github.com/Anjinhyoung/Cpp_Algorithm_Problem-Solving/assets/117788976/91f783b8-3e3d-409a-a42f-1b8d1ca7c474)
