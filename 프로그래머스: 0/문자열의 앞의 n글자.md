@@ -67,5 +67,24 @@ std::string solution(std::string my_string, int n) {
 }
 ```
 
+## 추가(insert)를 활용하는 방법
+
+```C++
+#include <string>
+
+
+
+std::string solution(std::string my_string, int n) {
+    std::string answer = "";
+    
+    for(int order = 0; order < n; order++){
+        answer.insert(answer.end(), 1, my_string[order]);
+    }
+    
+    return answer;
+}
+
+```
+
 이런 식으로 풀면 된다. 고작 문자열 하나 문제인데 많은 걸 알고 가는 기분이다.
 
