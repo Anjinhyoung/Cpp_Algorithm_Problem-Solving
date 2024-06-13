@@ -99,3 +99,21 @@ std::string solution(std::string my_string, int n) {
 세 번째 매개변수: 삽입할 요소의 값 또는 다른 컨테이너의 일부분.
 이런 식으로 풀면 된다. 고작 문자열 하나 문제인데 많은 걸 알고 가는 기분이다.
 
+
+## insert 2개의 매개변수
+
+```C++
+#include <string>
+
+
+
+std::string solution(std::string my_string, int n) {
+    std::string answer = "";
+    
+    for(int order = 0; order < n; order++){
+         answer.insert(answer.end(), my_string[order]);
+    }
+    
+    return answer;
+}
+```
