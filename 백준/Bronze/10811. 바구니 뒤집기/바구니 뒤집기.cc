@@ -1,30 +1,34 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
-int main() 
-{
+int main() {
+
+
     std::cin.tie(nullptr);
     std::ios::sync_with_stdio(false);
 
-    int array[101];
+    int a, b;
+    int basket[101] = {0,};
+
+    std::cin >> a >> b;
 
     for (int i = 1; i <= 100; i++) 
     {
-        array[i] = i;
+        basket[i] = i;
     }
 
-    int array_count, reception;
-    std::cin >> array_count >> reception;
+    int c, d;
 
-    int input, input2;
-    for (int i = 0; i < reception; i++) 
+    for (int i = 1; i <= b; i++) 
     {
-        std::cin >> input >> input2; 
-        std::reverse(array + input, array+ input2 +1); // arr의 시작 포인터와 끝 포인터를 전달
+        std::cin >> c >> d;
+
+        std::reverse(basket+c, basket+d+1);
     }
 
-    for (int i = 1; i < array_count+1; i++)
+    for (int i = 1; i <= a; i++) 
     {
-        std::cout << array[i] << " ";
+        std::cout << basket[i] << " ";
     }
 }
