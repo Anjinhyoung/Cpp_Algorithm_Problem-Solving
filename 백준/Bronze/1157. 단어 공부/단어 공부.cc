@@ -1,55 +1,39 @@
 #include <iostream>
-#include <string>
+
+using namespace std;
+
+int alpha[26], cnt = 0;
+string input;
+//아스키코드 : 대문자 65~90, 소문자 97~122
+
+
 
 int main() {
 
     std::cin.tie(nullptr);
     std::ios::sync_with_stdio(false);
 
-    int array[26] = { 0, };
+    cin >> input;
 
-    std::string str;
-    std::cin >> str;
-
-    for (int i = 0; i < str.length(); i++) 
-    {
-        // 소문자인 경우
-        if (str[i] >= 97) 
-        {
-            // ex) 'a' - 97
-            array[str[i] - 97]++;
-        }
-        // 대문자 인 경우
-        else 
-        {
-            array[str[i] - 65]++;
-        }
+    //빈도수 체킹
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] < 97) alpha[input[i] - 65]++; //대문자
+        else alpha[input[i] - 97]++; //소문자
     }
 
-    int max = 0, max_index = 0;
+    int max = 0, max_indx = 0;
 
-    for (int i = 0; i < 26; i++)
-    {
-        if (max < array[i]) 
-        {
-            max = array[i];
-            max_index = i;
-        } 
-    }
-
-    for (int i = 0; i < 26; i++) 
-    {
-        if (max_index == i) continue;
-        else 
-        {
-            if (max == array[i]) 
-            {
-                std::cout << "?";
-                return 0;
-            }
+    for (int i = 0; i < 26; i++) {
+        if (max < alpha[i]) {
+            max = alpha[i];
+            max_indx = i;
         }
     }
-
-    std::cout << (char)(max_index + 65);
-    return 0;
+    //가장 많이 사용된 알파벳이 여러개인가?
+    for (int i = 0; i < 26; i++) {
+        if (max == alpha[i]) cnt++;
+    }
+    //여러개라면 ? 출력, 아니라면 대문자로 출력
+    if (cnt > 1) cout << "?";
+    else cout << (char)(max_indx + 65);
 }
