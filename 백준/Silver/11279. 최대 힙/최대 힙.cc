@@ -6,29 +6,24 @@ int main() {
     std::cin.tie(nullptr);
     std::ios::sync_with_stdio(false);
 
-    std::priority_queue<int> p_que;
-
     int num, num2;
     std::cin >> num;
+
+    std::priority_queue<int> p_q;
 
     for (int i = 0; i < num; i++) 
     {
         std::cin >> num2;
-        if (num2 == 0) 
+        if (num2 == 0)
         {
-            if (!p_que.empty()) 
+            if (!p_q.empty())
             {
-                std::cout << p_que.top() << "\n";
-                p_que.pop();
+                std::cout << p_q.top() << "\n";
+                p_q.pop();
             }
-            else 
-            {
-                std::cout << p_que.size() << "\n";
-            }
+            else std::cout << 0 << "\n";
         }
-        else 
-        {
-            p_que.push(num2);
-        }
+
+        else p_q.push(num2);
     }
 }
