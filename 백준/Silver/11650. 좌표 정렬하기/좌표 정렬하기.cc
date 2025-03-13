@@ -4,7 +4,9 @@
 
 int main() {
 
-    
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+
     int num, num2, num3;
     std::cin >>  num;
 
