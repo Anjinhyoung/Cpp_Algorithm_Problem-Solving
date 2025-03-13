@@ -1,28 +1,23 @@
-// 데이터의 개수 보다 데이터의 범위가 크지 않을 때 계수 정렬 + 메모리 관련
-// vector<int>는 40mb 10,000,000 * 4byte(int) 그래서 vector가 아니라 배열을 쓴다. 
 #include <iostream>
-
-int cnt[10001] = { 0, };
 
 int main() {
 
     std::cin.tie(nullptr);
     std::ios::sync_with_stdio(false);
-
+    
+    // 범위에 비해 입력 값 범위가 너무 작음 계수  정렬
+    
+    // 계수 정렬도 수 정렬하기가 되는 구나
     int num, num2;
     std::cin >> num;
+    int arr[10001] = { 0, };
 
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num; i++) 
     {
         std::cin >> num2;
-        cnt[num2]++;
+        arr[num2]++;
     }
 
-    for (int i = 1; i <= 10000; i++)
-    {
-        for (int j = 0; j < cnt[i]; j++)
-        {
-            std::cout << i << "\n";
-        }
-    }
+    for (int i = 1; i < 10001; i++) for (int j = 0; j < arr[i]; j++) std::cout << i << "\n";
+
 }
