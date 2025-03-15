@@ -3,19 +3,19 @@
 
 int main() {
 
-    std::cin.tie(nullptr);
-    std::ios::sync_with_stdio(false);
+    char alpha[26];
+
+    // 97 + 25 = 100 + 22 = 122
+
+    for (int i = 97; i <= 122; i++)  alpha[i - 97] = char(i);
 
     std::string str;
-    char alpha[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-
     std::cin >> str;
 
-    int num;
     for (int i = 0; i < 26; i++) 
     {
+        if (str.find(alpha[i]) != -1) std::cout << str.find(alpha[i]) << " ";
+        else std::cout << -1 << " ";
         
-        std::cout << (int)str.find(alpha[i]) << " ";
     }
 }
