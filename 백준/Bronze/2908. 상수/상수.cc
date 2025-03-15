@@ -3,23 +3,18 @@
 #include <algorithm>
 
 int main() {
-    std::string str = " ", str2 = " ", str3 = " ";
-    std::getline(std::cin, str);
+
+    std::string str, str2;
+    int num, num2;
+
+    std::cin >> str >> str2;
 
     std::reverse(str.begin(), str.end());
+    std::reverse(str2.begin(), str2.end());
 
-    str2 = str.substr(0, 3);
-    str3 = str.substr(4, 3);
-   
-    int num = std::stoi(str2);
-    int num2 = std::stoi(str3);
-        
-    if (num > num2) 
-    {
-        std::cout << num;
-    }
-    else 
-    {
-        std::cout << num2;
-    }
+    num = std::stoi(str);
+    num2 = std::stoi(str2);
+
+    if (num > num2) std::cout << num;
+    else std::cout << num2;
 }
