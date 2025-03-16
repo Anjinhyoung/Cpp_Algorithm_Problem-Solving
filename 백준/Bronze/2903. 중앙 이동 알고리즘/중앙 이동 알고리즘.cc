@@ -1,15 +1,16 @@
 #include <iostream>
-#include <cmath>
 
 int main() {
-    int num,  count = 2, count2 = 0;
+    // 초기 상태
+    int first = 2;
+
+    int num;
     std::cin >> num;
 
-    while (num != count2) 
+    for (int i = 1; i <= num; i++) 
     {
-        count2++;
-        count = count * 2 - 1;
+        first = (first * 2 - 1);
     }
-
-    std::cout << count * count;
+    
+    std::cout << first * first;
 }
