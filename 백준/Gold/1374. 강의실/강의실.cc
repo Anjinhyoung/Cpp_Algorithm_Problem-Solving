@@ -3,6 +3,9 @@
 #include <algorithm>
 int main() {
 
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+
     int num;
     std::cin >> num;
 
@@ -51,4 +54,6 @@ int main() {
     }
     std::cout << room.size();
 }
+
+
 
