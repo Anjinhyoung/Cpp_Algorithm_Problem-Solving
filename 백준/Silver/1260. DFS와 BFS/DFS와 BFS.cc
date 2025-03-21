@@ -2,74 +2,75 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
-
-
 bool visited_dfs[1001];
 std::vector<int> graph_dfs[1001];
+bool visted_bfs[1001];
+std::vector<int> graph_bfs[1001];
 
-void dfs(int start) {
+void dfs(int start) 
+{
     visited_dfs[start] = true;
-
     std::cout << start << " ";
+
     for (int i = 0; i < graph_dfs[start].size(); i++) 
     {
-        int y = graph_dfs[start][i];
+        int  y = graph_dfs[start][i];
+
         if (visited_dfs[y] == false) dfs(y);
     }
 }
 
-
-bool visited_bfs[1001];
-std::vector<int> graph_bfs[1001];
-
-
-void bfs(int start) {
-    std::queue<int> que;
-    que.push(start);
-    visited_bfs[start] = true;
-
-    while (!que.empty()) 
-    {
-        int x = que.front();
-        std::cout << x << " ";
-        que.pop();
-        
-        for (int i = 0; i < graph_bfs[x].size(); i++)
-        {
-            int y = graph_bfs[x][i];
-
-            // 만약에 방문하지 않았다면
-            if (visited_bfs[y] == false)
-            {
-                que.push(y);
-                visited_bfs[y] = true;
-            }
-        }
-    }
-}
+void bfs(int start);
 
 int main() {
-    int num, num2, num3; 
-    std::cin >> num >> num2 >> num3;
+
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+
+    int num, num2, start;
+    std::cin >> num >> num2 >> start;
 
     for (int i = 0; i < num2; i++) 
     {
-        int x, y;
-        std::cin >> x >> y;
-        // 양방향 간선
-        graph_dfs[x].push_back(y);
-        graph_dfs[y].push_back(x);
-        graph_bfs[x].push_back(y);
-        graph_bfs[y].push_back(x);
+        int node, node2;
+        std::cin >> node >> node2;
+        graph_dfs[node].push_back(node2);
+        graph_dfs[node2].push_back(node);
+        graph_bfs[node].push_back(node2);
+        graph_bfs[node2].push_back(node);
     }
 
     for (int i = 0; i < 1001; i++) 
     {
-        if (graph_dfs[i].size() > 1) std::sort(graph_dfs[i].begin(), graph_dfs[i].end());
-        if (graph_bfs[i].size() > 1) std::sort(graph_bfs[i].begin(), graph_bfs[i].end());
+        if (graph_dfs[i].size() != 0) std::sort(graph_bfs[i].begin(), graph_bfs[i].end());
+        if (graph_dfs[i].size() != 0) std::sort(graph_dfs[i].begin(), graph_dfs[i].end());
     }
 
-    dfs(num3);
+    dfs(start);
     std::cout << "\n";
-    bfs(num3);
+    bfs(start);
+}
+
+void bfs(int start) {
+    
+    visted_bfs[start] = true;
+    std::queue<int>  que;
+    que.push(start);
+
+    while (!que.empty()) 
+    {
+        std::cout << que.front() << " ";
+        int x = que.front();
+        que.pop();
+
+        for (int i = 0; i < graph_bfs[x].size(); i++) 
+        {
+            int y = graph_bfs[x][i];
+            if (visted_bfs[y] == false) 
+            {
+                visted_bfs[y] = true;
+                que.push(y);
+            }
+        }
+    }
 }
