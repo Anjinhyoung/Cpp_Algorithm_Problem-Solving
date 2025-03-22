@@ -1,41 +1,38 @@
 #include <iostream>
+#include <stack>
 #include <string>
 
 int main() {
 
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+
     int num;
     std::cin >> num;
 
-    std::string str;
     for (int i = 0; i < num; i++) 
     {
-        int sum = 0;
+        std::string str;
+        std::stack<char> st;
+
         std::cin >> str;
-        for (int j = 0; j < str.size(); j++) 
+
+        for (int index = 0; index < str.size(); index++) 
         {
-            if (str[j] == '(') 
-            {
-                sum += 1;
-            }
+            if (str[index] == '(') st.push(str[index]);
             else 
             {
-                if (sum == 0) 
+                // 첫 번째로 ')'가 나왔으면
+                if (st.empty())
                 {
-                    sum -= 1;
+                    st.push(')');
                     break;
                 }
-                sum -= 1;  
+                else if (st.top() == '(') st.pop();
             }
         }
 
-        if (sum == 0)
-        {
-            std::cout << "YES" << "\n";
-        }
-        else
-        {
-
-            std::cout << "NO" "\n";
-        }
+        if (st.empty()) std::cout << "YES" << "\n";
+        else std::cout << "NO" << "\n";
     }
 }
