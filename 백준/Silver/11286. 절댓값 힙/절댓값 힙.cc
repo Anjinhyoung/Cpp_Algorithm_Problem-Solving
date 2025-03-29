@@ -3,6 +3,9 @@
 
 int main() {
 
+    std::cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+
     int num;
     std::cin >> num;
     std::priority_queue<int, std::vector<int>, std::greater<int>> p_q; // 0초과의 양수 값
