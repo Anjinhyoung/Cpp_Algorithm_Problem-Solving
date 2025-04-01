@@ -4,27 +4,20 @@
 
 int main() {
 
-    int num, x,y;
-    std::cin >> num;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
+    int num; std::cin >> num;
+    
     std::vector<std::pair<int, int>> vec;
 
     for (int i = 0; i < num; i++) 
     {
-        std::cin >> x >> y;
-        vec.push_back({ y,x });
+        int a, b; std::cin >> a >> b;
+        vec.push_back({ b,a });
     }
 
     std::sort(vec.begin(), vec.end());
-    
-    for (int i = 0; i < num; i++) 
-    {
-        std::swap(vec[i].first, vec[i].second);
-    }
 
-    for (int i = 0; i < num; i++) 
-    {
-        std::cout << vec[i].first << " " << vec[i].second << "\n";
-    }
-
+    for (int i = 0; i < num; i++) std::cout << vec[i].second << ' ' << vec[i].first << '\n';
 }
