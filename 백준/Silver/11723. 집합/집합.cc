@@ -18,7 +18,7 @@ int main() {
         if (str == "add")
         {
             std::cin >> num2;
-            count[num2] = 1;
+            count[num2]++;
         }
         else if (str == "remove")
         {
@@ -28,7 +28,7 @@ int main() {
         else if (str == "check")
         {
             std::cin >> num2;
-            if (count[num2] == 1) std::cout << 1 << '\n';
+            if (count[num2] > 0) std::cout << 1 << '\n';
             else std::cout << 0 << '\n';
         }
 
@@ -36,11 +36,11 @@ int main() {
         {
             std::cin >> num2;
 
-            if (count[num2] == 1) count[num2] = 0;
-            else count[num2] = 1;
+            if (count[num2] > 0) count[num2] = 0;
+            else count[num2]++;
         }
 
-        else if (str == "all") for (int j = 1; j <= 20; j++)  count[j] = 1;
+        else if (str == "all") for (int j = 1; j <= 20; j++)  count[j]++;
 
         else for (int j = 1; j <= 20; j++) count[j] = 0;
     }
